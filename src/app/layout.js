@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
 import './globals.css';
+import { Control } from './Control';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  const resp = await fetch('http://localhost:9999/topics');
+  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL+'topics', {cache:'no-store'});  // 글목록을 가지고 와서 캐시를 안 쓰겠다.. 고 세팅하는 것임. 
   const topics = await resp.json();
 
   return (
@@ -23,11 +24,7 @@ export default async function RootLayout({ children }) {
             {return <li key={topic.id}><Link href={`/read/${topic.id}`}>{topic.title}</Link></li> })}
         </ol>
         {children}
-        <ul>
-          <li><a  href = "/create">Create</a></li>
-          <li><a  href = "/udpate/1">Update</a></li>
-          <li><input type="button" value="delete"/></li>
-        </ul>
+        <Control />
       </body>
     </html>
   )

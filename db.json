@@ -1,13 +1,26 @@
 {
-    "posts": [
-        {
-            "id":1,
-            "title":"json-server",
-            "author":"typicode"
-        }
-    ],
-    "topics":[
-        {"id":1, "title":"html", "body":"html is ..."},
-        {"id":2, "title":"css", "body":"css is ..."}
-        ]
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "topics": [
+    {
+      "id": "1",
+      "title": "html",
+      "body": "html is ..."
+    },
+    {
+      "id": "2",
+      "title": "css",
+      "body": "css is ..."
+    },
+    {
+      "id": "83f8",
+      "title": "react",
+      "body": "react is ..."
+    }
+  ]
 }
